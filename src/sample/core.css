@@ -1,0 +1,12 @@
+#header {
+    -fx-font-size: 35px;
+}
+
+.button {
+    -fx-pref-height: 10px;
+    -fx-pref-width: 90px;
+}
+
+.text-area {
+    -fx-fill: darkgray;
+}

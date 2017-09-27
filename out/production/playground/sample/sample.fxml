@@ -9,6 +9,9 @@
 <?import java.net.URL?>
 <GridPane fx:controller="sample.Controller"
           xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+    <stylesheets>
+        <URL value="@login.css"/>
+    </stylesheets>
     <Text text="Welcome" fx:id="header"
           GridPane.rowIndex="0" GridPane.columnIndex="0"/>
     <Label text="Username:"
@@ -19,7 +22,7 @@
            GridPane.rowIndex="3" GridPane.columnIndex="0"/>
     <TextField text="Password" fx:id="pw"
                GridPane.rowIndex="4" GridPane.columnIndex="0"/>
-    <HBox GridPane.rowIndex="5" GridPane.columnIndex="0" spacing="10">
+    <HBox GridPane.rowIndex="5" GridPane.columnIndex="0" spacing="10" alignment="BOTTOM_RIGHT">
         <Button text="Log In" fx:id="login"
                 onAction="#LogIn"/>
         <Button text="Discard" fx:id="discard"
