@@ -7,6 +7,6 @@
     -fx-pref-width: 90px;
 }
 
-.text-area text {
+.text-area {
     -fx-fill: darkgray;
 }
