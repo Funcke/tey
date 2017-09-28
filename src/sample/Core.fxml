@@ -19,5 +19,6 @@
     <HBox GridPane.rowIndex="2" GridPane.columnIndex="0" spacing="10" alignment="BOTTOM_RIGHT">
         <Button text="Save" onAction="#Save" />
         <Button text="Discard" onAction="#Discard"/>
+        <Button text="Open" onAction="#Open"/>
     </HBox>
 </GridPane>

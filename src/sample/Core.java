@@ -22,6 +22,10 @@ public class Core {
         }
     }
 
+    public void Open() {
+        
+    }
+
     public void Discard() {
         Input.setText("");
     }
