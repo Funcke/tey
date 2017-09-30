@@ -10,21 +10,28 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.beans.EventHandler;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.FileReader;
-import java.io.FileWriter;
+import java.io.*;
 
 public class Controller {
     @FXML TextField un;
     @FXML TextField pw;
-    @FXML Button discard;
+    @FXML Button login;
     @FXML Label warning;
     public void LogIn() {
         System.out.println(un.getText());
         System.out.println(pw.getText());
-        if(this.Control(un.getText(), pw.getText()))
+        if(this.Control(un.getText(), pw.getText())) {
+            try {
+                BufferedWriter bw = new BufferedWriter(new FileWriter("local.csv"));
+                bw.write(un.getText() + ";" + pw.getText());
+                bw.close();
+            }
+            catch (IOException err) {
+                System.out.println(err.getMessage());
+            }
             this.Open();
+
+        }
         else
             warning.setText("Wrong Log in date");
     }
@@ -35,7 +42,7 @@ public class Controller {
             String line = source.readLine();
 
             while (line != null) {
-                if (line.equals(uname + ";" + pword))
+                if (line.split(";")[0].equals(un.getText()) && line.split(";")[1].equals(pw.getText()))
                     return true;
                 line = source.readLine();
             }
@@ -55,13 +62,14 @@ public class Controller {
             stage.setScene(new Scene(root, 450, 450));
             stage.show();
 
-            Stage this_form = (Stage) discard.getScene().getWindow();
+            Stage this_form = (Stage) login.getScene().getWindow();
             this_form.close();
         }
-        catch(Exception err)
+        catch(IOException err)
         {
-            ;
+            System.out.println("error creating the new form\n");
         }
+
     }
 
     public void Sign_up () {
@@ -95,7 +103,7 @@ public class Controller {
 
 
     public void Discard() {
-        Stage stage = (Stage) discard.getScene().getWindow();
+        Stage stage = (Stage) login.getScene().getWindow();
         System.out.println("Closing");
         stage.close();
     }

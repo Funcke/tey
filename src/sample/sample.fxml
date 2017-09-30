@@ -14,7 +14,7 @@
         <URL value="@login.css"/>
     </stylesheets>
     <Text text="Welcome" fx:id="header"
-          GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+          GridPane.rowIndex="0" GridPane.columnIndex="0" />
     <Label text="Username:"
            GridPane.rowIndex="1" GridPane.columnIndex="0"/>
     <TextField text="Username" fx:id="un"

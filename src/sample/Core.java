@@ -3,10 +3,29 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
-import java.io.PrintWriter;
+import javax.annotation.Resources;
+import java.io.*;
+import java.net.URL;
+import java.nio.charset.Charset;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class Core {
     @FXML TextArea Input;
+    protected Person user;
+    @FXML
+    public void initialize() {
+        try {
+            Path path = Paths.get("Edit.txt");
+            byte[] content = Files.readAllBytes(path);
+            String scontent = new String(content, Charset.forName("UTF8"));
+            Input.setText(scontent);
+        }
+        catch(Exception err){
+            System.out.println("File could not be opened");
+        }
+    }
     public void Save() {
         String content = Input.getText();
         int i = content.indexOf(' ');
@@ -20,10 +39,6 @@ public class Core {
         catch(Exception err) {
             System.out.println(err.getMessage());
         }
-    }
-
-    public void Open() {
-
     }
 
     public void Discard() {

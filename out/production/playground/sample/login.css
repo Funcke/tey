@@ -3,6 +3,6 @@
     -fx-pref-width: 90px;
 }
 
-.label {
-    -fx-fill: red;
+#warning {
+    -fx-text-fill: red;
 }
