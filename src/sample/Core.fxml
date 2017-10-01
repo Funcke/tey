@@ -15,7 +15,7 @@
     <Text text="Now Look at This!" fx:id="header"
           GridPane.rowIndex="0" GridPane.columnIndex="0"/>
     <TextArea fx:id="Input" text="Edit text"
-              GridPane.rowIndex="1" GridPane.columnIndex="0" maxWidth="300" maxHeight="200"/>
+              GridPane.rowIndex="1" GridPane.columnIndex="0" maxWidth="420" minHeight="330"/>
     <HBox GridPane.rowIndex="2" GridPane.columnIndex="0" spacing="10" alignment="BOTTOM_RIGHT">
         <Button text="Save" onAction="#Save" />
         <Button text="Discard" onAction="#Discard"/>

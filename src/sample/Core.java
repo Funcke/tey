@@ -3,9 +3,7 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 
-import javax.annotation.Resources;
 import java.io.*;
-import java.net.URL;
 import java.nio.charset.Charset;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -13,7 +11,6 @@ import java.nio.file.Paths;
 
 public class Core {
     @FXML TextArea Input;
-    protected Person user;
     @FXML
     public void initialize() {
         try {
