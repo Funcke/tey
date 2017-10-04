@@ -2,6 +2,9 @@ package sample;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
+import javafx.stage.FileChooser;
+import javafx.stage.Stage;
+import javafx.stage.Window;
 
 import java.io.*;
 import java.nio.charset.Charset;
@@ -10,19 +13,9 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class Core {
+    FileChooser fc = new FileChooser();
     @FXML TextArea Input;
-    @FXML
-    public void initialize() {
-        try {
-            Path path = Paths.get("Edit.txt");
-            byte[] content = Files.readAllBytes(path);
-            String scontent = new String(content, Charset.forName("UTF8"));
-            Input.setText(scontent);
-        }
-        catch(Exception err){
-            System.out.println("File could not be opened");
-        }
-    }
+    //Saves the file under the name of the first complete word in the text
     public void Save() {
         String content = Input.getText();
         int i = content.indexOf(' ');
@@ -35,6 +28,22 @@ public class Core {
         }
         catch(Exception err) {
             System.out.println(err.getMessage());
+        }
+    }
+
+    public void open() {
+        try {
+            File file = fc.showOpenDialog(new Stage());
+            BufferedReader br = new BufferedReader(new FileReader(file));
+            String line = br.readLine();
+            Input.setText("");
+
+            while(line != null) {
+                Input.appendText(line + "\n");
+                line = br.readLine();
+            }
+        } catch(Exception err) {
+            System.out.println("Error opening the choosen file appeared");
         }
     }
 

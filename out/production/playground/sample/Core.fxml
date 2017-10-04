@@ -13,7 +13,7 @@
         <URL value="@core.css"/>
     </stylesheets>
     <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" alignment="TOP_LEFT">
-        <Button text="open"/>
+        <Button text="open" onAction="#open"/>
         <Button text="Save" onAction="#Save" />
         <Button text="Discard" onAction="#Discard"/>
     </HBox>
