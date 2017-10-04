@@ -12,12 +12,11 @@
     <stylesheets>
         <URL value="@core.css"/>
     </stylesheets>
-    <Text text="Now Look at This!" fx:id="header"
-          GridPane.rowIndex="0" GridPane.columnIndex="0"/>
-    <TextArea fx:id="Input" text="Edit text"
-              GridPane.rowIndex="1" GridPane.columnIndex="0" maxWidth="300" maxHeight="200"/>
-    <HBox GridPane.rowIndex="2" GridPane.columnIndex="0" spacing="10" alignment="BOTTOM_RIGHT">
+    <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" alignment="TOP_LEFT">
+        <Button text="open"/>
         <Button text="Save" onAction="#Save" />
         <Button text="Discard" onAction="#Discard"/>
     </HBox>
+    <TextArea fx:id="Input" text="Edit text"
+              GridPane.rowIndex="1" GridPane.columnIndex="0" maxWidth="420" minHeight="330"/>
 </GridPane>
