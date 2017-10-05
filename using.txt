@@ -1,0 +1,141 @@
+using System;
+using System.Collections;
+using System.Collections.Generic;
+using System.Text;
+using System.IO;
+
+namespace PointCoords
+{
+    class PointReader
+    {  
+        public struct Point
+        {
+            public double Xcoord;
+            public double Ycoord;
+        }
+       
+        public ArrayList PointArrayList = new ArrayList();
+         
+        //Konstruktor
+        public PointReader(){}
+
+        //Methoden
+        public void AddPoint(double x, double y)
+        {
+            Point p= new Point();  
+            p.Xcoord = x; p.Ycoord = y;
+            PointArrayList.Add(p);
+         }
+
+       
+        public void WritePointsToFile(string path)
+        {
+            StreamWriter sr = new StreamWriter("points.csv");
+            foreach(Point current in PointArrayList)
+            {
+                sr.WriteLine(Convert.ToString(current.Xcoord) + ';' + Convert.ToString(current.Ycoord));
+            }
+        }
+
+
+        public void WritePointsToFileBin(string path)
+        {
+            BinaryWriter bw = new BinaryWriter(File.Open("points.bin", FileMode.Create));
+
+            try
+            {
+                foreach(Point current in PointArrayList)
+                {
+                    bw.Write(current.Xcoord);
+                    bw.Write(current.Ycoord);
+                }
+            }
+            catch(Exception err)
+            {
+                ;
+            }
+            finally
+            {
+                bw.Close();
+            }
+        }
+
+
+
+        public ArrayList GetPointsFromFile(string path)
+        {
+            string zeile = "";
+            StreamReader sr = new StreamReader(path);
+            Point current = new Point();
+            ArrayList rList = new ArrayList();
+
+            try
+            {
+                zeile = sr.ReadLine();
+                while(zeile != null)
+                {
+                    current.Xcoord = Double.Parse(zeile.Split(';')[0]);
+                    current.Ycoord = Double.Parse(zeile.Split(';')[1]);
+                    rList.Add(current);
+                    zeile = sr.ReadLine();
+                }
+            }
+            catch(Exception err)
+            {
+                return null;
+            }
+            finally
+            {
+                sr.Close();
+            }
+
+            return rList;
+        }
+
+
+        public ArrayList GetPointsFromFileBin(string path)
+        {
+            BinaryReader br = new BinaryReader(File.Open(path, FileMode.Open));
+            ArrayList items = new ArrayList();
+            Point current = new Point();
+
+            try
+            {
+                current.Xcoord = br.ReadDouble();
+                current.Ycoord = br.ReadDouble();
+                while(current.Ycoord != default(double))
+                {
+                    items.Add(current);
+                    current.Xcoord = br.ReadDouble();
+                    current.Ycoord = br.ReadDouble();
+                }
+            }
+            catch(EndOfStreamException err)
+            {
+                return null;
+            }
+
+            return items;
+        }
+
+
+        public Point GetPoint(int pointNo)
+        { // pointNo > 0
+            if (pointNo <= PointArrayList.Count && pointNo > 0)
+            {
+                return (Point)PointArrayList[pointNo-1];
+            }
+            else
+            {
+                throw new IndexOutOfRangeException("Illegal Pointnumber");
+            }
+        }
+
+        /*
+        public Point GetPointBin(string path, int pointNo)
+        {   // pointNo > 0
+           
+        }
+        */
+    }//class
+}//ns

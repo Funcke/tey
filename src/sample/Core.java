@@ -4,27 +4,34 @@ import javafx.fxml.FXML;
 import javafx.scene.control.TextArea;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.stage.Window;
 
 import java.io.*;
-import java.nio.charset.Charset;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 
 public class Core {
-    FileChooser fc = new FileChooser();
+    FileChooser fc;
     @FXML TextArea Input;
+
+    @FXML
+    public void initialize() {
+        fc = new FileChooser();
+        fc.getExtensionFilters().addAll(
+                new FileChooser.ExtensionFilter("Text Files", "*.txt"),
+                new FileChooser.ExtensionFilter("C-Source", "*.c"),
+                new FileChooser.ExtensionFilter("C#-Source", ".cs"),
+                new FileChooser.ExtensionFilter("Java-Source", "*.java"),
+                new FileChooser.ExtensionFilter("All", "*.*")
+        );
+    }
     //Saves the file under the name of the first complete word in the text
     public void Save() {
         String content = Input.getText();
-        int i = content.indexOf(' ');
-        String name = content.substring(0, i) + ".txt";
 
         try {
-            PrintWriter target = new PrintWriter(name, "utf-8");
-            target.write(content);
-            target.close();
+            File target = fc.showSaveDialog(new Stage());
+
+            if(target !=  null) {
+                WriteToFile(content, target);
+            }
         }
         catch(Exception err) {
             System.out.println(err.getMessage());
@@ -50,4 +57,12 @@ public class Core {
     public void Discard() {
         Input.setText("");
     }
+
+    public void WriteToFile(String content, File target) throws Exception {
+        FileWriter fw = new FileWriter(target);
+        fw.write(content);
+        fw.close();
+    }
+
 }
+
