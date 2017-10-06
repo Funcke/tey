@@ -7,8 +7,8 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.HBox?>
 
-<GridPane fx:controller="sample.Core"
-          xmlns:fx="http://javafx.com/fxml" alignment="center" hgap="10" vgap="10">
+<GridPane fx:controller="sample.CoreController"
+          xmlns:fx="http://javafx.com/fxml" alignment="TOP_CENTER" hgap="10" vgap="10">
     <stylesheets>
         <URL value="@core.css"/>
     </stylesheets>
@@ -18,5 +18,5 @@
         <Button text="Discard" onAction="#Discard"/>
     </HBox>
     <TextArea fx:id="Input" text="Edit text"
-              GridPane.rowIndex="1" GridPane.columnIndex="0" maxWidth="420" minHeight="330"/>
+              GridPane.rowIndex="1" GridPane.columnIndex="0" maxWidth="440" minHeight="410"/>
 </GridPane>

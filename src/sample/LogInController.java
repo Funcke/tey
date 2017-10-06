@@ -10,7 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 import java.io.*;
 
-public class Controller {
+public class LogInController {
     @FXML TextField un;
     @FXML TextField pw;
     @FXML Button login;
@@ -19,16 +19,7 @@ public class Controller {
         System.out.println(un.getText());
         System.out.println(pw.getText());
         if(this.Control(un.getText(), pw.getText())) {
-            try {
-                BufferedWriter bw = new BufferedWriter(new FileWriter("local.csv"));
-                bw.write(un.getText() + ";" + pw.getText());
-                bw.close();
-            }
-            catch (IOException err) {
-                System.out.println(err.getMessage());
-            }
             this.Open();
-
         }
         else
             warning.setText("Wrong Log in date");
@@ -40,7 +31,7 @@ public class Controller {
             String line = source.readLine();
 
             while (line != null) {
-                if (line.split(";")[0].equals(un.getText()) && line.split(";")[1].equals(pw.getText()))
+                if (line.split(";")[0].equals(uname) && line.split(";")[1].equals(pword))
                     return true;
                 line = source.readLine();
             }
