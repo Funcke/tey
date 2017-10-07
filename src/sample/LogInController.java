@@ -65,12 +65,14 @@ public class LogInController {
         String uName = un.getText();
         String pWord = pw.getText();
         String line;
+        boolean newUser = true;
         try {
             BufferedReader data = new BufferedReader(new FileReader("user.csv"));
 
             line = data.readLine();
             while (line != null) {
                 if (line.equals(uName + ';' + pWord)){
+                    newUser = false;
                     warning.setText("Attention! This user already exists!");
                     break;
                 }
@@ -78,16 +80,17 @@ public class LogInController {
             }
 
             data.close();
-
-            BufferedWriter entry = new BufferedWriter(new FileWriter("user.csv", true));
-            entry.write(uName + ";" + pWord + "\n");
-            entry.close();
+            if(newUser) {
+                BufferedWriter entry = new BufferedWriter(new FileWriter("user.csv", true));
+                entry.write(uName + ";" + pWord + "\n");
+                entry.close();
+                this.Open();
+            }
         }
         catch(Exception err)
         {
             System.out.println(err.getMessage());
         }
-
     }
 
 

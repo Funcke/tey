@@ -3,7 +3,8 @@
 }
 
 .button {
-
+    -fx-pref-height: 10px;
+    -fx-pref-width: 90px;
 }
 
 .text-area {
