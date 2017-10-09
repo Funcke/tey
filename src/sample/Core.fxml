@@ -7,16 +7,18 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.HBox?>
 
-<GridPane fx:controller="sample.CoreController"
+<?import javafx.scene.control.Label?>
+<GridPane fx:controller="sample.CoreController" fx:id="Grid"
           xmlns:fx="http://javafx.com/fxml" alignment="TOP_CENTER" hgap="10" vgap="10">
     <stylesheets>
         <URL value="@core.css"/>
     </stylesheets>
     <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" alignment="TOP_LEFT">
-        <Button text="open" onAction="#open"/>
-        <Button text="Save" onAction="#Save" />
-        <Button text="Discard" onAction="#Discard"/>
+        <Button text="open" fx:id="Open" onAction="#open"/>
+        <Button text="Save" fx:id="Save" onAction="#Save" />
+        <Button text="Discard" fx:id="Discard" onAction="#Discard"/>
+        <Label text="NightMode" fx:id="NightMode" onMouseClicked="#NightMode"/>
     </HBox>
     <TextArea fx:id="Input" text="Edit text"
-              GridPane.rowIndex="1" GridPane.columnIndex="0" maxWidth="440" minHeight="410"/>
+              GridPane.rowIndex="1" GridPane.columnIndex="0" minWidth="690" minHeight="650"/>
 </GridPane>

@@ -18,5 +18,5 @@
         <Button text="Discard" onAction="#Discard"/>
     </HBox>
     <TextArea fx:id="Input" text="Edit text"
-              GridPane.rowIndex="1" GridPane.columnIndex="0" maxWidth="440" minHeight="410"/>
+              GridPane.rowIndex="1" GridPane.columnIndex="0" minWidth="690" minHeight="650"/>
 </GridPane>

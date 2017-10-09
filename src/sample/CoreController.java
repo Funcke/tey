@@ -1,14 +1,22 @@
 package sample;
 
 import javafx.fxml.FXML;
+import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 
 import java.io.*;
 
 public class CoreController {
-    FileChooser fc;
+    @FXML FileChooser fc;
+    @FXML Button Open;
+    @FXML Button Save;
+    @FXML Button Discard;
+    @FXML GridPane Grid;
     @FXML TextArea Input;
 
     @FXML
@@ -64,5 +72,7 @@ public class CoreController {
         fw.close();
     }
 
+    public void NightMode() {
+    }
 }
 

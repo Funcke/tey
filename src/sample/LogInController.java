@@ -48,7 +48,7 @@ public class LogInController {
             root = FXMLLoader.load(getClass().getResource("Core.fxml"));
             Stage stage = new Stage();
             stage.setTitle("Main");
-            stage.setScene(new Scene(root, 450, 450));
+            stage.setScene(new Scene(root, 700, 700));
             stage.show();
 
             Stage this_form = (Stage) login.getScene().getWindow();
