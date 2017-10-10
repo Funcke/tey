@@ -5,8 +5,20 @@
 .button {
     -fx-pref-height: 10px;
     -fx-pref-width: 90px;
+    -fx-font-size: 17px;
+}
+
+.label {
+    -fx-font-size: 17px;
+    -fx-padding: 9px;
 }
 
 .text-area {
-    -fx-fill: darkgray;
+    text-area-background: white;
 }
+
+.text-area .content {
+    -fx-background-color: text-area-background;
+    -fx-font-size: 17px;
+}
+

@@ -3,8 +3,6 @@ package sample;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
-import javafx.scene.layout.Background;
-import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.GridPane;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
@@ -18,7 +16,7 @@ public class CoreController {
     @FXML Button Discard;
     @FXML GridPane Grid;
     @FXML TextArea Input;
-
+    boolean nightMode = false;
     @FXML
     public void initialize() {
         fc = new FileChooser();
@@ -73,6 +71,22 @@ public class CoreController {
     }
 
     public void NightMode() {
+        if(!this.nightMode) {
+            Grid.setStyle("-fx-background-color: dimgray");
+            Input.setStyle("text-area-background: dimgray");
+            Open.setStyle("-fx-background-color: dimgray");
+            Save.setStyle("-fx-background-color: dimgray");
+            Discard.setStyle("-fx-background-color: dimgray");
+            this.nightMode = true;
+        }
+        else {
+            Grid.setStyle("-fx-background-color: white");
+            Input.setStyle("text-area-background: white");
+            Open.setStyle("-fx-background-color: white");
+            Save.setStyle("-fx-background-color: white");
+            Discard.setStyle("-fx-background-color: white");
+            this.nightMode = false;
+        }
     }
 }
 
