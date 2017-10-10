@@ -1,8 +1,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.layout.GridPane?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.text.Text?>
 <?import java.net.URL?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.HBox?>
@@ -14,11 +12,11 @@
         <URL value="@core.css"/>
     </stylesheets>
     <HBox GridPane.rowIndex="0" GridPane.columnIndex="0" alignment="TOP_LEFT">
-        <Button text="open" fx:id="Open" onAction="#open"/>
-        <Button text="Save" fx:id="Save" onAction="#Save" />
-        <Button text="Discard" fx:id="Discard" onAction="#Discard"/>
+        <Label text="open" fx:id="Open" onMouseClicked="#open"/>
+        <Label text="Save" fx:id="Save" onMouseClicked="#Save" />
+        <Label text="Discard" fx:id="Discard" onMouseClicked="#Discard"/>
         <Label text="NightMode" fx:id="NightMode" onMouseClicked="#NightMode"/>
     </HBox>
     <TextArea fx:id="Input" text="Edit text"
-              GridPane.rowIndex="1" GridPane.columnIndex="0" minWidth="690" minHeight="650"/>
+              GridPane.rowIndex="1" GridPane.columnIndex="0" minWidth="690" minHeight="640"/>
 </GridPane>

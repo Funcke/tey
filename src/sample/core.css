@@ -2,12 +2,6 @@
     -fx-font-size: 35px;
 }
 
-.button {
-    -fx-pref-height: 10px;
-    -fx-pref-width: 90px;
-    -fx-font-size: 17px;
-}
-
 .label {
     -fx-font-size: 17px;
     -fx-padding: 9px;
